@@ -94,12 +94,19 @@ Provides a file uploader for users to upload images.
 2.3.2. Argument Class
 
 class Args:
+
     model = "fold8_epoch100.pt"  # Path to the trained model
+    
     gt = None
+    
     target = 1
+    
     n_MC = 24  # Number of Monte Carlo samples
+    
     out_res = None
+    
     thresh = 0.75  # Threshold for corrosion detection
+    
     factor = None
     
 A simple class to store configuration arguments for the model and processing.
@@ -107,6 +114,7 @@ A simple class to store configuration arguments for the model and processing.
 2.3.3. Severity Calculation
 
 def calculate_severity(out, threshold=0.75):
+
     out_np = out.cpu().numpy()
     
     if out_np.ndim > 2:

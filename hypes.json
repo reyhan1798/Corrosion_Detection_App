@@ -1,0 +1,153 @@
+{
+    "arch": {
+        "ALIGN_CORNERS": false,
+        "EXTRA": {
+            "FINAL_CONV_KERNEL": 1,
+            "STAGE1": {
+                "BLOCK": "BOTTLENECK",
+                "FUSE_METHOD": "SUM",
+                "NUM_BLOCKS": [
+                    4
+                ],
+                "NUM_BRANCHES": 1,
+                "NUM_CHANNELS": [
+                    64
+                ],
+                "NUM_MODULES": 1
+            },
+            "STAGE2": {
+                "BLOCK": "BASIC",
+                "FUSE_METHOD": "SUM",
+                "NUM_BLOCKS": [
+                    4,
+                    4
+                ],
+                "NUM_BRANCHES": 2,
+                "NUM_CHANNELS": [
+                    48,
+                    96
+                ],
+                "NUM_MODULES": 1
+            },
+            "STAGE3": {
+                "BLOCK": "BASIC",
+                "FUSE_METHOD": "SUM",
+                "NUM_BLOCKS": [
+                    4,
+                    4,
+                    4
+                ],
+                "NUM_BRANCHES": 3,
+                "NUM_CHANNELS": [
+                    48,
+                    96,
+                    192
+                ],
+                "NUM_MODULES": 4
+            },
+            "STAGE4": {
+                "BLOCK": "BASIC",
+                "FUSE_METHOD": "SUM",
+                "NUM_BLOCKS": [
+                    4,
+                    4,
+                    4,
+                    4
+                ],
+                "NUM_BRANCHES": 4,
+                "NUM_CHANNELS": [
+                    48,
+                    96,
+                    192,
+                    384
+                ],
+                "NUM_MODULES": 3
+            }
+        },
+        "bayes": false,
+        "config": "HRNet_do",
+        "image_shape": [
+            3,
+            512,
+            512
+        ],
+        "num_classes": 1,
+        "recon": false
+    },
+    "data": {
+        "background_colour": [
+            255,
+            0,
+            0
+        ],
+        "class_colours": [
+            [
+                255,
+                0,
+                0
+            ],
+            [
+                255,
+                0,
+                255
+            ]
+        ],
+        "class_labels": [
+            "background",
+            "corrosion"
+        ],
+        "class_weights": [
+            1.0,
+            7.035
+        ],
+        "overlay_colours": [
+            [
+                0,
+                255,
+                0,
+                0
+            ],
+            [
+                255,
+                0,
+                255,
+                200
+            ]
+        ],
+        "pop_mean": [
+            0.5596,
+            0.4997,
+            0.4767
+        ],
+        "pop_std0": [
+            0.2066,
+            0.2224,
+            0.2382
+        ],
+        "test_file": "testset.txt",
+        "train_file": "kfold_cln.txt",
+        "val_file": "val.txt"
+    },
+    "logging": {
+        "eval_iter": 10
+    },
+    "model": "fold8_epoch100.pt",
+    "solver": {
+        "adam_eps": 0.0001,
+        "batch_size": 1,
+        "channels": 3,
+        "epsilon": 1e-09,
+        "learning_rate": 0.0003,
+        "learning_rate_step": null,
+        "loss": "xentropy",
+        "max_steps": 120,
+        "n_MC": 5,
+        "num_workers": 4,
+        "opt": "RMSProp",
+        "sched_factor": 0.9,
+        "sched_patience": 2,
+        "sched_thresh": 0.0001,
+        "var_loss_epoch": 80,
+        "var_loss_multiplier": 0.1
+    }
+}

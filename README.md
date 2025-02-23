@@ -94,7 +94,6 @@ Provides a file uploader for users to upload images.
 2.3.2. Argument Class
 
 class Args:
-
     model = "fold8_epoch100.pt"  # Path to the trained model
     
     gt = None
